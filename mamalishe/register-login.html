@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jiunge kama Mamalishe</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 600px;
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        .form-control {
+            border-radius: 5px;
+        }
+        .form-check-label {
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center"><i class="fas fa-user-plus"></i> Jiunge kama Mamalishe</h2>
+        <form action="mamalishe.html" method="POST" enctype="multipart/form-data">
+            
+            <div class="form-group">
+                <label for="businessName"><i class="fas fa-store"></i> Jina la Biashara:</label>
+                <input type="text" class="form-control" id="businessName" name="businessName" placeholder="Ingiza jina la biashara yako" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="location"><i class="fas fa-map-marker-alt"></i> Mahali Ulipo (Eneo):</label>
+                <input type="text" class="form-control" id="location" name="location" placeholder="Ingiza eneo la biashara yako" required>
+            </div>
+
+            <div class="form-group">
+                <label for="nidaNumber"><i class="fas fa-id-card"></i> Namba ya NIDA:</label>
+                <input type="text" class="form-control" id="nidaNumber" name="nidaNumber" placeholder="Ingiza Namba yako ya NIDA" required>
+            </div>
+
+            <div class="form-group">
+                <label for="profileImage"><i class="fas fa-image"></i> Picha ya Profaili:</label>
+                <input type="file" class="form-control-file" id="profileImage" name="profileImage" accept="image/*" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phoneNumber"><i class="fas fa-phone"></i> Namba ya Simu:</label>
+                <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Ingiza namba yako ya simu" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email"><i class="fas fa-envelope"></i> Barua Pepe (Hiari):</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Ingiza barua pepe kama unayo">
+            </div>
+
+            <div class="form-group">
+                <label for="password"><i class="fas fa-lock"></i> Neno la Siri:</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Weka neno la siri" required>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword"><i class="fas fa-lock"></i> Thibitisha Neno la Siri:</label>
+                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Thibitisha neno la siri" required>
+            </div>
+
+            <div class="form-group">
+                <label for="verificationCode"><i class="fas fa-code"></i> Nambari ya Thibitisho:</label>
+                <input type="text" class="form-control" id="verificationCode" name="verificationCode" placeholder="Ingiza nambari ya kuthibitisha" required>
+            </div>
+
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="terms" name="terms" required>
+                <label class="form-check-label" for="terms">Nakubali <a href="#">vigezo na masharti</a></label>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block mt-4"><i class="fas fa-paper-plane"></i> Jiunge</button>
+        </form>
+        <div class="text-center mt-3">
+            <p>Tayari una akaunti? 
+            <a href="login.html" class="btn btn-link">Ingia hapa</a>
+        </p>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashibodi ya Msimamizi - Mfumo wa Mamalishe</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .dashboard-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .dashboard-card {
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .chart-container {
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Mamalishe App</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Nyumbani</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="chat.html">Chat</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html">Bidhaa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="admin-dashboard.html">Dashibodi</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container py-5">
+        <div class="dashboard-container">
+            <h2>Dashibodi ya Msimamizi</h2>
+            
+            <!-- Statistics Section -->
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="dashboard-card">
+                        <h4>Watumiaji Wote</h4>
+                        <p id="total-users">0</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="dashboard-card">
+                        <h4>Watoa Huduma Wote</h4>
+                        <p id="total-vendors">0</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="dashboard-card">
+                        <h4>Oda Zilizokamilika</h4>
+                        <p id="total-orders">0</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Revenue and Orders Charts -->
+            <div class="chart-container mt-4">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="dashboard-card">
+                            <h4>Mapato ya Mwezi Huu</h4>
+                            <canvas id="revenue-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="dashboard-card">
+                            <h4>Oda za Mwezi Huu</h4>
+                            <canvas id="orders-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User List Section -->
+            <div class="user-list-table mt-4">
+                <h3>Orodha ya Watumiaji</h3>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Jina la Mtumiaji</th>
+                            <th>Barua Pepe</th>
+                            <th>Hali</th>
+                            <th>Hatua</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Example User Row -->
+                        <tr>
+                            <td>1</td>
+                            <td>Jane Doe</td>
+                            <td>jane@example.com</td>
+                            <td>Aktiva</td>
+                            <td>
+                                <a href="#" class="btn btn-info btn-sm">Ongeza</a>
+                                <a href="#" class="btn btn-danger btn-sm">Futa</a>
+                            </td>
+                        </tr>
+                        <!-- More users will be listed here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white text-center py-3">
+        <div class="container">
+            <p class="mb-0">&copy; 2024 Mamalishe Global. Haki Zote Zimehifadhiwa.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Chart.js for Charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+    <script>
+        // Example Data
+        document.getElementById('total-users').textContent = '120';
+        document.getElementById('total-vendors').textContent = '45';
+        document.getElementById('total-orders').textContent = '300';
+
+        // Revenue Chart
+        const revenueCtx = document.getElementById('revenue-chart').getContext('2d');
+        new Chart(revenueCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Januari', 'Februari', 'Machi', 'Aprili', 'Mei', 'Juni'],
+                datasets: [{
+                    label: 'Mapato',
+                    data: [50000, 60000, 55000, 70000, 65000, 80000],
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Orders Chart
+        const ordersCtx = document.getElementById('orders-chart').getContext('2d');
+        new Chart(ordersCtx, {
+            type: 'line',
+            data: {
+                labels: ['Wiki 1', 'Wiki 2', 'Wiki 3', 'Wiki 4', 'Wiki 5', 'Wiki 6'],
+                datasets: [{
+                    label: 'Oda',
+                    data: [30, 45, 50, 40, 60, 55],
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 2,
+                    fill: false
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Wiki'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Oda'
+                        },
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

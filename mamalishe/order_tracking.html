@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ufuatiliaji wa Oda</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #f5f5f5;
+        }
+        .tracking-container {
+            margin-top: 50px;
+        }
+        .status-card {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 10px 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.5s ease-in-out;
+        }
+        .status-card.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .status-card i {
+            font-size: 30px;
+            margin-right: 15px;
+            color: #17a2b8;
+        }
+        .status-card.active-status {
+            background-color: #e2f7e2;
+            border-left: 5px solid #28a745;
+        }
+        #map {
+            margin-top: 30px;
+            height: 300px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .expected-time {
+            background-color: #fff3cd;
+            padding: 20px;
+            margin-top: 30px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .payment-options {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .payment-options button {
+            width: 150px;
+            margin: 10px;
+        }
+        .waiting-message {
+            background-color: #f0f8ff;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 30px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container tracking-container">
+        <h2 class="text-center">Ufuatiliaji wa Oda Yako</h2>
+        
+        <!-- Status cards with icons and animation -->
+        <div class="status-card" id="status-1">
+            <i class="fas fa-check-circle"></i>
+            <div class="status-info">
+                <h5>Oda Imepokelewa</h5>
+                <p>Oda yako imepokelewa na mamalishe wetu.</p>
+            </div>
+        </div>
+        <div class="status-card" id="status-2">
+            <i class="fas fa-hamburger"></i>
+            <div class="status-info">
+                <h5>Oda Inaandaliwa</h5>
+                <p>Chakula chako kinaandaliwa, tafadhali subiri kidogo...</p>
+            </div>
+        </div>
+        <div class="status-card active-status" id="status-3">
+            <i class="fas fa-motorcycle"></i>
+            <div class="status-info">
+                <h5>Oda Yako Ipo Njiani</h5>
+                <p>Dereva ameshachukua oda yako na iko njiani.</p>
+            </div>
+        </div>
+        <div class="status-card" id="status-4">
+            <i class="fas fa-home"></i>
+            <div class="status-info">
+                <h5>Oda Imefika</h5>
+                <p>Oda yako imewasili, karibu kwenye chakula kizuri!</p>
+            </div>
+        </div>
+
+        <!-- Map showing delivery progress -->
+        <div id="map"></div>
+
+        <!-- Expected time of arrival -->
+        <div class="expected-time">
+            <h4>Muda wa Kufika: Dakika 15</h4>
+            <p>Tunatarajia oda yako kufika ndani ya dakika 15.</p>
+        </div>
+
+        <!-- Payment options -->
+        <div class="payment-options">
+            <h5>Chagua Njia ya Malipo</h5>
+            <button class="btn btn-primary"><i class="fas fa-money-bill-wave"></i> Lipa Cash</button>
+            <button class="btn btn-secondary"><i class="fas fa-mobile-alt"></i> Lipa Lipa-Number</button>
+        </div>
+
+        <!-- Waiting message with encouragement -->
+        <div class="waiting-message">
+            <p>Asante kwa uvumilivu wako! Chakula kitafika hivi karibuni. Furahia huduma yetu!</p>
+        </div>
+    </div>
+
+    <!-- Leaflet.js -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+    <!-- Animation Script for status cards -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Animation delay between status cards
+            let statusCards = document.querySelectorAll('.status-card');
+            statusCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('active');
+                }, index * 500); // delay 500ms for each card
+            });
+        });
+    </script>
+
+    <!-- Live Geolocation API and Leaflet integration -->
+    <script>
+        var map = L.map('map').setView([-6.7924, 39.2083], 13); // Eneo la Dar es Salaam kwa mfano
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Marker za Mamalishe na Mteja
+        var mamalisheMarker = L.marker([-6.8000, 39.2700]).addTo(map).bindPopup('Mamalishe Location').openPopup();
+        var customerMarker = L.marker([-6.7924, 39.2083]).addTo(map).bindPopup('Customer Location').openPopup();
+
+        // Njia kati ya mamalishe na mteja
+        var route = L.polyline([[-6.8000, 39.2700], [-6.7924, 39.2083]], { color: 'blue' }).addTo(map);
+
+        // Live geolocation using browser API
+        if (navigator.geolocation) {
+            navigator.geolocation.watchPosition(function(position) {
+                var lat = position.coords.latitude;
+                var lng = position.coords.longitude;
+                
+                // Ongeza marker ya live position ya dereva
+                var driverMarker = L.marker([lat, lng], {color: 'red'}).addTo(map).bindPopup('Driver Current Location');
+                
+                // Update map center
+                map.setView([lat, lng], 13);
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    </script>
+</body>
+</html>

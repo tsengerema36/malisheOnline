@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wasiliana Nasi | Mamalishe Online</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        .contact-section {
+            padding: 50px 0;
+        }
+        .contact-section h2 {
+            color: #333;
+            font-size: 36px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .contact-info {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #555;
+        }
+        .form-control {
+            margin-bottom: 20px;
+        }
+        .submit-btn {
+            background-color: #f39c12;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .map-container {
+            width: 100%;
+            height: 400px;
+            margin-top: 30px;
+            background-color: #f7f7f7;
+        }
+        .footer {
+            padding: 20px;
+            background-color: #343a40;
+            color: #fff;
+            text-align: center;
+        }
+        .footer a {
+            color: #f39c12;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sehemu ya Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">Mamalishe Online</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Nyumbani</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="menu.html">Orodha ya Chakula</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="register.html">Jiunge</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">Kuhusu Sisi</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="contact.html">Wasiliana Nasi</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Sehemu ya Wasiliana Nasi -->
+    <section class="contact-section">
+        <div class="container">
+            <h2>Wasiliana Nasi</h2>
+            <p class="contact-info">
+                Tunafurahi kupata maoni, maswali, au maombi kutoka kwako. Tafadhali tumia fomu hapa chini kuwasiliana nasi moja kwa moja au tupigie simu au tutumie barua pepe. Tupo hapa kukusaidia!
+            </p>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Taarifa za Mawasiliano</h4>
+                    <ul class="list-unstyled contact-info">
+                        <li><strong>Anwani:</strong> Mtaa wa Jamhuri, Jijini Dar es Salaam</li>
+                        <li><strong>Simu:</strong> +255 75 8345 500</li>
+                        <li><strong>Barua pepe (Email):</strong> info@mamalisheonline.co.tz</li>
+                        <li><strong>Muda wa kazi:</strong> Jumatatu - Ijumaa, Saa 3:00 Asubuhi hadi Saa 11:00 Jioni</li>
+                    </ul>
+                </div>
+
+                <div class="col-md-6">
+                    <h4>Tuma Ujumbe Moja kwa Moja</h4>
+                    <form action="submit_contact.php" method="post">
+                        <div class="form-group">
+                            <label for="name">Jina lako:</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Barua pepe:</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Mada ya Ujumbe:</label>
+                            <input type="text" class="form-control" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Ujumbe wako:</label>
+                            <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn submit-btn">Tuma Ujumbe</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Sehemu ya Ramani -->
+            <div class="map-container" id="map">
+                <!-- Ramani ya Tanzania kupitia Google Maps -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.36809923714!2d39.24114402084663!3d-6.792354449032622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x185c4c95c17822b7%3A0x3b5ccfdf9fda9d61!2sDar%20es%20Salaam%2C%20Tanzania!5e0!3m2!1sen!2sus!4v1601407884950!5m2!1sen!2sus" width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 Mamalishe Online. Haki zote zimehifadhiwa. | <a href="terms.html">Vigezo na Masharti</a></p>
+    </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

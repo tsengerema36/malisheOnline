@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashibodi ya Mamalishe</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .card {
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .chart-container {
+            position: relative;
+            margin: auto;
+            height: 40vh;
+            width: 80vw;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Dashibodi ya Mamalishe</h2>
+        <div class="row">
+            <!-- Profile Card -->
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body text-center">
+                        <img src="path/to/profile-image.jpg" alt="Profile" class="img-fluid rounded-circle" width="100">
+                        <h5 class="card-title">Jina la Biashara</h5>
+                        <p class="card-text">Namba ya Simu: 075XXXXXXX</p>
+                        <a href="#" class="btn btn-primary">Hariri Profaili</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sales Summary Card -->
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Muhtasari wa Mauzo</h5>
+                        <p class="card-text">Oda Zilizokamilika: 150</p>
+                        <p class="card-text">Mapato: Tsh 1,200,000</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Summary Card -->
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Malipo ya Mfumo</h5>
+                        <p class="card-text">Kiasi Unachopaswa Kulipia: Tsh 200,000</p>
+                        <a href="tel:+255XXXXXXX" class="btn btn-secondary">Wasiliana Nasi</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sales Chart -->
+        <div class="chart-container">
+            <canvas id="salesChart"></canvas>
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="add-product.html" class="btn btn-success">Ongeza Bidhaa</a>
+            <a href="view-sales.html" class="btn btn-info">Tazama Mauzo</a>
+            <a href="chat.html" class="btn btn-warning">Chat na Wateja</a>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+    <script>
+        var ctx = document.getElementById('salesChart').getContext('2d');
+        var salesChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Januari', 'Februari', 'Machi', 'Aprili', 'Mei', 'Juni', 'Julai', 'Agosti', 'Septemba', 'Oktoba', 'Novemba', 'Desemba'],
+                datasets: [{
+                    label: 'Mauzo kwa Mwezi',
+                    data: [120000, 150000, 130000, 170000, 180000, 160000, 190000, 210000, 200000, 230000, 220000, 250000],
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 2,
+                    fill: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

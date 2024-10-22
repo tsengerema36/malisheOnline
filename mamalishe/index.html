@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mamalishe Online | Nyumbani</title>
+    <link rel="icon" href="img/mamalishe.jpg" type="image/jpeg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+        }
+        .hero-section {
+            background-image: url('img/hero.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        .hero-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #28a745;
+        }
+        .hero-section p {
+            font-size: 1.5rem;
+            color: #405a46;
+        }
+        .search-container {
+            text-align: center;
+            width: 100%;
+            position: relative;
+            margin-top: 20px;
+        }
+        .search-container input[type="text"] {
+            width: 100%;
+            padding: 12px 20px;
+            padding-right: 50px;
+            font-size: 1.5rem;
+            border: none;
+            border-bottom: 2px solid #dcdcdc;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .search-container input[type="text"]:focus {
+            border-bottom-color: #28a745;
+        }
+        .search-container i {
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: #757575;
+            cursor: pointer;
+        }
+        .buttons-container {
+            margin-top: 20px;
+        }
+        .buttons-container button {
+            background-color: #f8f9fa;
+            border: 1px solid #dcdcdc;
+            padding: 10px 20px;
+            font-size: 1rem;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .buttons-container button:hover {
+            background-color: #e9ecef;
+            border-color: #b3b3b3;
+        }
+        .mamalishe-section {
+            margin-top: 4rem;
+        }
+        .mamalishe-card {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            background-color: #fff;
+            transition: transform 0.2s;
+        }
+        .mamalishe-card:hover {
+            transform: scale(1.05);
+        }
+        .mamalishe-card img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            margin-bottom: 1rem;
+        }
+        .chat-btn, .call-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgba(0, 255, 255, 0.5);
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            text-align: center;
+            line-height: 60px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-size: 1.5rem;
+            margin-left: 10px;
+        }
+        .ad-section {
+            margin-top: 4rem;
+        }
+        .ad-card {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            background-color: #fff;
+        }
+        .ad-card img{
+            width: 100%;
+            height: auto;
+        }
+        .hero-section .container a {
+            background-color: #28a745;
+            padding: 15px 5px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #fff;
+        }
+        .scroll-to-top {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            background-color: #28a745;
+            color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 1.5rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+        .footer {
+            margin-top: 5rem;
+            padding: 1.5rem;
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+        }
+        .navbar-brand
+        {
+            color: black;
+            text-shadow: 
+                0 0 10px cyan,
+                0 0 20px cyan,
+                0 0 40px cyan,
+                0 0 80px cyan;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Mamalishe Online</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Nyumbani</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="menu.html">Bidhaa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">Kuhusu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Wasiliana</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="register-login.html">Jiunge</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1>Karibu Mamalishe | Online</h1>
+            <p>Chagua chakula unachopenda kutoka kwa mamalishe bora nchini.</p>
+            <a href="register-login.html">Jiunge nasi!</a>
+        </div>
+    </section>
+
+   <!-- Search Box -->
+   <div class="search-container">
+    <form action="search-results.html" method="GET" style="position: relative;">
+        <input type="text" name="search" placeholder="Tafuta mamalishe au bidhaa..." required>
+        <i class="bi bi-search"></i> <!-- Search Icon -->
+    </form>
+    <div class="buttons-container">
+        <button type="button" id="location-btn">Ruhusu location Yako.</button>
+    </div>
+</div>
+    
+
+    <!-- Mamalishe Maarufu Section -->
+    <section class="mamalishe-section container">
+        <h3 class="text-center">Mamalishe Maarufu</h3>
+        <div class="row">
+            <!-- Mamalishe Card Example -->
+            <div class="col-md-4 mb-4">
+                <div class="mamalishe-card">
+                    <img src="img/mamalishe.jpg" alt="Mamalishe Image">
+                    <h5>Jina : Mama Juma</h5>
+                    <p>Location: Mbezi ,Dar.</p>
+                    <a href="mamalishe-profile.html" class="btn btn-success">Tazama Bidhaa</a>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4"></div>
+                <div class="mamalishe-card">
+                    <img src="img/mamalishe.jpg" alt="Mamalishe Image">
+                    <h5>Jina : Ma J cafe</h5>
+                    <p>Location: Kibaha ,Dar.</p>
+                    <a href="mamalishe-profile.html" class="btn btn-success">Tazama Bidhaa</a>
+                </div>
+            </div>
+            <!-- Add more mamalishe cards here -->
+        </div>
+    </section>
+
+    <!-- Advertisement Section -->
+    <section class="ad-section container">
+        <h3 class="text-center">Matangazo ya Bidhaa Mpya</h3>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="ad-card">
+                    <h5>Supu ya Tambi</h5>
+                    <img src="img/food2.jpg" alt="">
+                    <p>Maelezo kuhusu bidhaa mpya inayoletwa sokoni.</p>
+                    <a href="new-product-1.html" class="btn btn-primary">Jua Zaidi</a>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="ad-card">
+                    <h5>Mihogo ya Mayai</h5>
+                    <img src="img/food1.jpg" alt="">
+                    <p>Maelezo kuhusu bidhaa nyingine inayoletwa sokoni.</p>
+                    <a href="new-product-2.html" class="btn btn-primary">Jua Zaidi</a>
+                </div>
+            </div>
+            <!-- Add more ads here -->
+        </div>
+    </section>
+    
+    <!-- Chat and Call Icons -->
+    <a href="chat.html" class="chat-btn" style="margin-bottom: 75px; margin-top: 75px;"><i class="bi bi-chat"></i></a>
+    <br>
+    <a href="contact.html" class="call-btn"><i class="bi bi-telephone"></i></a>
+    
+    <!-- Scroll to Top Button -->
+    <div class="scroll-to-top" id="scrollToTop" onclick="scrollToTop()" style="margin-bottom: 75px; margin-top: 75px; margin-right: 5px;"><i class="bi bi-arrow-up"></i></div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Mamalishe Online. Haki zote zimehifadhiwa.</p>
+    </footer>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Scroll to top functionality
+        const scrollToTop = () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        };
+    
+        // Show/hide scroll to top button
+        window.onscroll = () => {
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                scrollToTopBtn.style.display = 'block';
+            } else {
+                scrollToTopBtn.style.display = 'none';
+            }
+        };
+    </script>
+</body> 
+</html>    
